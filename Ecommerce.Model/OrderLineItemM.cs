@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Ecommerce.Model
 {
-    public class OrderLineItemM
+    public class OrderLineItemM : BaseEntity
     {
         [Key]
         public int OrderLineItemId { get; set; }
@@ -17,6 +17,5 @@ namespace Ecommerce.Model
         public int Quantity { get; set; }
         public decimal ProductPrice { get; set; }
         public decimal Total { get; set; }
-        public bool IsDeleted { get; set; } = false;
     }
 }

@@ -8,7 +8,7 @@ using System.Xml.Linq;
 
 namespace Ecommerce.Model
 {
-    public class OrderM
+    public class OrderM : BaseEntity
     {
         [Key]
         public int OrderId { get; set; }
@@ -20,6 +20,5 @@ namespace Ecommerce.Model
         public int NoOfProducts { get; set; }
         [Display(Name = "Total")]
         public decimal TotalAmount { get; set; }
-        public bool IsDeleted { get; set; } = false;
     }
 }

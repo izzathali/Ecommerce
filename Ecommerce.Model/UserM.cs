@@ -9,7 +9,7 @@ using System.Xml.Linq;
 
 namespace Ecommerce.Model
 {
-    public class UserM
+    public class UserM : BaseEntity
     {
         [Key]
         public int UserId { get; set; }
@@ -32,6 +32,5 @@ namespace Ecommerce.Model
         [Column(TypeName = "nvarchar(MAX)")]
         [Display(Name = "Profile")]
         public string? UserPrfUrl { get; set; }
-        public bool IsDeleted { get; set; } = false;
     }
 }

@@ -9,13 +9,13 @@ using System.Xml.Linq;
 
 namespace Ecommerce.Model
 {
-    public class CategoryM
+    public class CategoryM : BaseEntity
     {
         [Key]
         public int CategoryId { get; set; }
         [Column(TypeName = "nvarchar(100)")]
         [Display(Name = "Category Name")]
         public string CategoryName { get; set; } = string.Empty;
-        public bool IsDeleted { get; set; } = false;
+        
     }
 }

@@ -9,7 +9,7 @@ using System.Xml.Linq;
 
 namespace Ecommerce.Model
 {
-    public class CustomerM
+    public class CustomerM : BaseEntity
     {
         [Key]
         public int CustomerId { get; set; }
@@ -29,6 +29,5 @@ namespace Ecommerce.Model
         [Column(TypeName = "nvarchar(15)")]
         [Display(Name = "Phone No")]
         public string PhoneNo2 { get; set; } = string.Empty;
-        public bool IsDeleted { get; set; } = false;
     }
 }

@@ -6,10 +6,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
+using Microsoft.AspNetCore.Http;
 
 namespace Ecommerce.Model
 {
-    public class ProductM
+    public class ProductM : BaseEntity
     {
         [Key]
         public int ProductId { get; set; }
@@ -33,6 +34,5 @@ namespace Ecommerce.Model
         [Display(Name = "Upload File")]
         public IFormFile? ProductPicFile { get; set; }
         public int Quantity { get; set; }
-        public bool IsDeleted { get; set; } = false;
     }
 }
