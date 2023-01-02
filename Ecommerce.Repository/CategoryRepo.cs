@@ -1,5 +1,7 @@
-﻿using Ecommerce.Interface;
+﻿using Ecommerce.Data;
+using Ecommerce.Interface;
 using Ecommerce.Model;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,9 +12,15 @@ namespace Ecommerce.Repository
 {
     public class CategoryRepo : ICategory
     {
-        public Task<int> Create(CategoryM t)
+        private readonly EcommerceDbContext db;
+        public CategoryRepo(EcommerceDbContext _db)
         {
-            throw new NotImplementedException();
+            this.db = _db;
+        }
+        public async Task<int> Create(CategoryM t)
+        {
+            db.Categories.Add(t);
+            return await db.SaveChangesAsync();
         }
 
         public Task<int> Delete(int id)
@@ -20,9 +28,9 @@ namespace Ecommerce.Repository
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<CategoryM>> GetAll()
+        public async Task<IEnumerable<CategoryM>> GetAll()
         {
-            throw new NotImplementedException();
+            return await db.Categories.Where(i => i.IsDeleted == false).ToListAsync();
         }
 
         public Task<CategoryM> GetById(int id)

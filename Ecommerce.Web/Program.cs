@@ -1,4 +1,6 @@
 using Ecommerce.Data;
+using Ecommerce.Interface;
+using Ecommerce.Repository;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -6,6 +8,8 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+
+builder.Services.AddScoped<ICategory, CategoryRepo>();
 
 
 var connectionString = builder.Configuration.GetConnectionString("DevConnection");
